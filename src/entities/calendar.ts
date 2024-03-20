@@ -5,7 +5,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn
 } from 'typeorm'
-import { Class } from './class'
+import { Teacher } from './teacher'
 
 @Entity()
 export class Calendar extends BaseEntity {
@@ -18,6 +18,6 @@ export class Calendar extends BaseEntity {
   @Column()
   event: string
 
-  @ManyToOne(() => Class, (classAux) => classAux.calendar)
-  class: Class
+  @ManyToOne(() => Teacher, (teacher) => teacher.calendar)
+  teacher: Teacher
 }

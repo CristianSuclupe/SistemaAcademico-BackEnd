@@ -13,7 +13,8 @@ import { Course } from './course'
 import { AcademicProduct } from './academicProduct'
 import { Registration } from './registration'
 import { RegisterNotes } from './registerNotes'
-import { Calendar } from './calendar'
+import { Announcement } from './announcement'
+import { Archive } from './archive'
 
 @Entity()
 export class Class extends BaseEntity {
@@ -47,11 +48,14 @@ export class Class extends BaseEntity {
   @OneToMany(() => RegisterNotes, (registerNotes) => registerNotes.class)
   registerNotes: RegisterNotes[]
 
+  @OneToMany(() => Announcement, (announcement) => announcement.class)
+  announcements: Announcement[]
+
+  @OneToMany(() => Archive, (archive) => archive.class)
+  archives: Archive[]
+
   @Column({ nullable: false })
   schedule: Date
-
-  @OneToMany(() => Calendar, (calendar) => calendar.class)
-  calendar: Calendar[]
 
   @CreateDateColumn()
   createdAt: Date

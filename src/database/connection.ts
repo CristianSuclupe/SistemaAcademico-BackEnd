@@ -9,6 +9,8 @@ import { Course } from '../entities/course'
 import { Class } from '../entities/class'
 import { AcademicProduct } from '../entities/academicProduct'
 import { Calendar } from '../entities/calendar'
+import { Announcement } from '../entities/announcement'
+import { Archive } from '../entities/archive'
 
 export const AppDataSource = new DataSource({
   type: 'mssql',
@@ -26,7 +28,9 @@ export const AppDataSource = new DataSource({
     Course,
     Class,
     AcademicProduct,
-    Calendar
+    Calendar,
+    Announcement,
+    Archive
   ],
   synchronize: true,
   options: {
