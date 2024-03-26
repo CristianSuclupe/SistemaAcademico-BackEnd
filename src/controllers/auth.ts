@@ -8,10 +8,10 @@ export class AuthController {
   private readonly jwtService = new JwtService()
 
   login = async (req: Request, res: Response) => {
-    const { user, password, userType } = req.body
-    if (!userType) return this.httpResponse.BadRequest(res, 'Invalid user type')
+    const { user, password, rol } = req.body
+    if (!rol) return this.httpResponse.BadRequest(res, 'Invalid user type')
     try {
-      const userSearched = await findUser(userType, user)
+      const userSearched = await findUser(rol, user)
       const passwordSearched = userSearched
         ? await validatePassword(password, userSearched.password)
         : false

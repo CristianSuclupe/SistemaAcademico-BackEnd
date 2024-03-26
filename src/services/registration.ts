@@ -1,14 +1,13 @@
-import { Registration } from '../entities/registration'
+import { Registration } from '../entities/registration';
 
 export class RegistrationService {
   createRegistration = async (
     registration: Registration
   ): Promise<Registration> => {
-    return await Registration.save(registration)
-  }
+    return await Registration.save(registration);
+  };
 
   getAllStudensPerClass = async (classId: string): Promise<any> => {
-    console.log(classId)
     try {
       const students = await Registration.getRepository()
         .createQueryBuilder('registration')
@@ -16,13 +15,13 @@ export class RegistrationService {
         .where('registration.classId = :classId', { classId })
         .select('student.id, student.name, student.surname, student.dni')
         .orderBy('student.surname', 'ASC')
-        .getRawMany()
+        .getRawMany();
       return {
         students: students
-      }
+      };
     } catch (error) {
-      console.log(error)
-      return null
+      console.log(error);
+      return null;
     }
-  }
+  };
 }

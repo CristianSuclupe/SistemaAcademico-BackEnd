@@ -8,7 +8,7 @@ export const isValidGuid = (guid: any): boolean => {
   return guidRegex.test(guid)
 }
 
-export const getUserType = (type: string) => {
+export const getRol = (type: string) => {
   if (type === 'Profesor') return 'teacher'
   if (type === 'Secretario académico') return 'secretary'
   return null
