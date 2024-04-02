@@ -12,6 +12,7 @@ import { Calendar } from '../entities/calendar'
 import { Announcement } from '../entities/announcement'
 import { Archive } from '../entities/archive'
 
+
 export const AppDataSource = new DataSource({
   type: 'mssql',
   host: config.server,

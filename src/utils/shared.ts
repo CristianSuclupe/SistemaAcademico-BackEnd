@@ -25,6 +25,10 @@ export const validatePassword = async (
   return passwordDecrypted
 }
 
+export const encryptPassword = async (password: string) => {
+  return await bcrypt.hash(password, 10)
+}
+
 export const findUser = async (userType: string, user: string) => {
   const rol = userType.toLowerCase()
   if (rol === 'profesor')
