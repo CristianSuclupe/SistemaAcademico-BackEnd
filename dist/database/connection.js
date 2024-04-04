@@ -18,12 +18,8 @@ const calendar_1 = require("../entities/calendar");
 const announcement_1 = require("../entities/announcement");
 const archive_1 = require("../entities/archive");
 exports.AppDataSource = new typeorm_1.DataSource({
-    type: 'mssql',
-    host: config_1.default.server,
-    port: config_1.default.dbPort,
-    username: config_1.default.username,
-    password: config_1.default.password,
-    database: config_1.default.database,
+    type: "postgres",
+    url: config_1.default.urlDb,
     entities: [
         teacher_1.Teacher,
         student_1.Student,
@@ -35,11 +31,7 @@ exports.AppDataSource = new typeorm_1.DataSource({
         academicProduct_1.AcademicProduct,
         calendar_1.Calendar,
         announcement_1.Announcement,
-        archive_1.Archive
+        archive_1.Archive,
     ],
     synchronize: true,
-    options: {
-        encrypt: true,
-        trustServerCertificate: true
-    }
 });
