@@ -1,25 +1,20 @@
-import { DataSource } from 'typeorm'
-import config from '../config'
-import { Teacher } from '../entities/teacher'
-import { Student } from '../entities/student'
-import { Secretary } from '../entities/secretary'
-import { Registration } from '../entities/registration'
-import { RegisterNotes } from '../entities/registerNotes'
-import { Course } from '../entities/course'
-import { Class } from '../entities/class'
-import { AcademicProduct } from '../entities/academicProduct'
-import { Calendar } from '../entities/calendar'
-import { Announcement } from '../entities/announcement'
-import { Archive } from '../entities/archive'
-
+import { DataSource } from "typeorm";
+import config from "../config";
+import { Teacher } from "../entities/teacher";
+import { Student } from "../entities/student";
+import { Secretary } from "../entities/secretary";
+import { Registration } from "../entities/registration";
+import { RegisterNotes } from "../entities/registerNotes";
+import { Course } from "../entities/course";
+import { Class } from "../entities/class";
+import { AcademicProduct } from "../entities/academicProduct";
+import { Calendar } from "../entities/calendar";
+import { Announcement } from "../entities/announcement";
+import { Archive } from "../entities/archive";
 
 export const AppDataSource = new DataSource({
-  type: 'mssql',
-  host: config.server,
-  port: config.dbPort,
-  username: config.username,
-  password: config.password,
-  database: config.database,
+  type: "postgres",
+  url: config.urlDb,
   entities: [
     Teacher,
     Student,
@@ -31,11 +26,7 @@ export const AppDataSource = new DataSource({
     AcademicProduct,
     Calendar,
     Announcement,
-    Archive
+    Archive,
   ],
   synchronize: true,
-  options: {
-    encrypt: true,
-    trustServerCertificate: true
-  }
-})
+});
