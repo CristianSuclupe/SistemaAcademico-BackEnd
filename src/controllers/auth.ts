@@ -17,9 +17,11 @@ export class AuthController {
       const passwordSearched = userSearched
         ? await validatePassword(password, userSearched.password)
         : false;
+      console.log(passwordSearched);
       if (!userSearched || !passwordSearched)
         return this.httpResponse.NotFound(res, "Incorrect user or password");
       const token = this.jwtService.createToken(userSearched);
+      console.log(token);
       return this.httpResponse.Ok(res, token);
     } catch (error) {
       return this.httpResponse.InternalServerError(res, "No data");
