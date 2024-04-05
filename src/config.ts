@@ -10,4 +10,5 @@ export default {
   database: process.env.DATABASE || "",
   secret: process.env.SECRET || "",
   urlDb: process.env.URLDB || "",
+  host: process.env.HOST || "",
 };

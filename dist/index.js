@@ -21,7 +21,7 @@ function main() {
         try {
             yield connection_1.AppDataSource.initialize();
             app_1.default.listen(config_1.default.port, () => {
-                console.log(`⚡️[server]: Server running correctly at http://127.0.0.1:${config_1.default.port}`);
+                console.log(`⚡️[server]: Server running correctly at ${config_1.default.host}:${config_1.default.port}`);
             });
         }
         catch (error) {
