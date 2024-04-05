@@ -19,20 +19,16 @@ class AuthController {
         this.jwtService = new jwt_1.JwtService();
         this.login = (req, res) => __awaiter(this, void 0, void 0, function* () {
             const { user, password, rol } = req.body;
-            console.log(user, password, rol);
             if (!rol)
                 return this.httpResponse.BadRequest(res, "Invalid user type");
             try {
                 const userSearched = yield (0, shared_1.findUser)(rol, user);
-                console.log(userSearched);
                 const passwordSearched = userSearched
                     ? yield (0, shared_1.validatePassword)(password, userSearched.password)
                     : false;
-                console.log(passwordSearched);
                 if (!userSearched || !passwordSearched)
                     return this.httpResponse.NotFound(res, "Incorrect user or password");
                 const token = this.jwtService.createToken(userSearched);
-                console.log(token);
                 return this.httpResponse.Ok(res, token);
             }
             catch (error) {

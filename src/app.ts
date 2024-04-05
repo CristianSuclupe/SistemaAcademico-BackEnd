@@ -19,8 +19,5 @@ app.use("/api/student", createStudentRouter());
 app.use("/api/secretary", createSecretaryRouter());
 app.use("/api/class", createClassRouter());
 app.use("/api/registration", createRegistrationRouter());
-app.use("/api", (_req, res) => {
-  res.send("Hello World");
-});
 
 export default app;

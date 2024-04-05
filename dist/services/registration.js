@@ -19,18 +19,17 @@ class RegistrationService {
         this.getAllStudensPerClass = (classId) => __awaiter(this, void 0, void 0, function* () {
             try {
                 const students = yield registration_1.Registration.getRepository()
-                    .createQueryBuilder('registration')
-                    .leftJoinAndSelect('registration.student', 'student')
-                    .where('registration.classId = :classId', { classId })
-                    .select('student.id, student.name, student.surname, student.dni')
-                    .orderBy('student.surname', 'ASC')
+                    .createQueryBuilder("registration")
+                    .leftJoinAndSelect("registration.student", "student")
+                    .where("registration.classId = :classId", { classId })
+                    .select("student.id, student.name, student.surname, student.dni")
+                    .orderBy("student.surname", "ASC")
                     .getRawMany();
                 return {
-                    students: students
+                    students: students,
                 };
             }
             catch (error) {
-                console.log(error);
                 return null;
             }
         });
