@@ -13,6 +13,7 @@ export class AuthController {
     if (!rol) return this.httpResponse.BadRequest(res, "Invalid user type");
     try {
       const userSearched = await findUser(rol, user);
+      console.log(userSearched);
       const passwordSearched = userSearched
         ? await validatePassword(password, userSearched.password)
         : false;

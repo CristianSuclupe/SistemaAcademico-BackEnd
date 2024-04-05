@@ -24,6 +24,7 @@ class AuthController {
                 return this.httpResponse.BadRequest(res, "Invalid user type");
             try {
                 const userSearched = yield (0, shared_1.findUser)(rol, user);
+                console.log(userSearched);
                 const passwordSearched = userSearched
                     ? yield (0, shared_1.validatePassword)(password, userSearched.password)
                     : false;
